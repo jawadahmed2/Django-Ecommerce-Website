@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from .models import *
 
 # Make function to operate Store Functionality
 def store(request):
-    context = {}
+    products = Product.objects.all()
+    context = {'products':products}
     return render(request, 'store/store.html',context)
 
 
