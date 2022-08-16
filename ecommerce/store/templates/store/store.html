@@ -1,17 +1,14 @@
+{% extends 'store/main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
-    <!--Add default stylesheet-->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
-<body>
+
+
 <h3>welcome to store</h3>
 
-<img src="{% static 'images/cart.png' %}" alt="store image">
-</body>
-</html>
+
+
+{% endblock content %}
