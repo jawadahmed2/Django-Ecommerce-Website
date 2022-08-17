@@ -49,7 +49,7 @@
         <br>
         <div class="box-element hidden" id="payment-info">
             <small>Paypal Options</small>
-            <button id="make-payment">Make Payment</button>
+            <button id="make-payment" type="button" class="btn btn-info">Make Payment</button>
         </div>
 
     </div>
@@ -131,10 +131,15 @@
             userFormData.total = total
         }
 
+        if (shipping == 'False') {
+            userFormData.total = total
+        }
+
 
         if (user == 'AnonymousUser') {
             userFormData.name = form.name.value
             userFormData.email = form.email.value
+            userFormData.total = total
 
         }
 
