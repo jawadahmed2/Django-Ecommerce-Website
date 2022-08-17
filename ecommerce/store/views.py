@@ -88,7 +88,7 @@ def processOrder(request):  # sourcery skip: extract-method
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(
-        customer=customer, complete=False)
+            customer=customer, complete=False)
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
         if total == float(order.get_cart_total):
@@ -96,12 +96,12 @@ def processOrder(request):  # sourcery skip: extract-method
         order.save()
         if order.shipping == True:
             ShippingAddress.objects.create(
-                customer = customer,
-                order = order,
-                address = data['shipping']['address'],
-                city = data['shipping']['city'],
-                state = data['shipping']['state'],
-                zipcode = data['shipping']['zipcode']
+                customer=customer,
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                state=data['shipping']['state'],
+                zipcode=data['shipping']['zipcode']
 
 
             )
