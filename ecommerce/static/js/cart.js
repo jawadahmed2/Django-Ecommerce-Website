@@ -9,7 +9,7 @@ for (i = 0; i < updateBtns.length; i++) {
 
         console.log('User:', user)
         if (user === 'AnonymousUser') {
-            console.log('Not Logged In')
+            addCookieItem(productId, action)
         } else {
             upateUserOrder(productId, action)
 
@@ -40,4 +40,30 @@ function upateUserOrder(productId, action) {
             console.log('data: ', data)
             location.reload()
         })
+}
+
+function addCookieItem(productId, action) {
+    console.log('User is not authenticated')
+
+    if (action == 'add') {
+        if (cart[productId] == undefined) {
+            cart[productId] = {
+                'quantity': 1
+            }
+        } else {
+            cart[productId]['quantity'] += 1
+        }
+    }
+
+    if (action == 'remove') {
+        cart[productId]['quantity'] -= 1
+
+        if (cart[productId]['quantity'] <= 0) {
+            console.log('Item should be deleted')
+            delete cart[productId];
+        }
+    }
+    console.log('Cart:',cart)
+    document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    location.reload();
 }
