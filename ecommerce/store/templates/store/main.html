@@ -77,7 +77,9 @@
 
             </ul>
             <div class="form-inline my-2 my-lg-0">
-                <a href="http://127.0.0.1:8000/admin/login/?next=/admin/" class="btn btn-warning">Login</a>
+                <div style="position:relative;right:20px;"><a href="http://127.0.0.1:8000/admin/login/?next=/admin/" class="btn btn-primary">SignUp</a></div>
+
+                <a href="http://127.0.0.1:8000/admin/login/?next=/admin/" class="btn btn-success">Login</a>
 
                 <a href="{% url 'cart' %}">
                     <img id="cart-icon" src="{% static 'images/cart.png' %}">
